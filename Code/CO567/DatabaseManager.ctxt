@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=DatabaseManager
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ s\ here.\r\n\r\n\ @author\ Haroon\ Sadiq\r\n\ @version\ 0.1\r\n
+comment1.params=
+comment1.target=java.sql.Connection\ connect()
+comment2.params=folder\ filename\ autoCommit
+comment2.target=void\ connectDB(java.lang.String,\ java.lang.String,\ boolean)
+comment3.params=
+comment3.target=void\ createTables()
+comment4.params=table\ columns\ data
+comment4.target=void\ insertDB(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment5.params=table\ column
+comment5.target=void\ findDB(java.lang.String,\ java.lang.String)
+comment6.params=table\ column
+comment6.target=void\ selectAll(java.lang.String,\ java.lang.String)
+comment7.params=sqlSelect\ sqlFrom\ sqlWhere
+comment7.target=java.lang.String\ getData(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment8.params=sqlFrom
+comment8.target=java.lang.String\ getMaxID(java.lang.String)
+numComments=9

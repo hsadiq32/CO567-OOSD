@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Customer2
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Customer\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=firstName\ lastName\ email\ password\ addressLine1\ addressLine2\ city\ postcode
+comment1.target=Customer2(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Customer\r\n
+comment2.params=
+comment2.target=void\ CustomerUI()
+numComments=3
