@@ -13,7 +13,7 @@ public class LoginSystem
     {
         db.createTables();
         if(db.getData("userType", "Users", "userType =2")==null){
-            db.insertDB("Users", "firstName, lastName, email, password, userType", "'John', 'Smith', 'john@email.com', 'password', 2");
+            db.insertDB("Users", "firstName, lastName, email, password, userType", "'John', 'Smith', '1', '2', 2");
         }
         startMenu();
     }
@@ -25,7 +25,6 @@ public class LoginSystem
             System.out.println("2. Log in");
             System.out.println("3. Exit");
             String option = reader.getString("Choose an option from above:");
-            System.out.println(db.getMaxID("Users"));
             if(option.equals("1"))
             {
                 signup();

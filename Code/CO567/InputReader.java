@@ -62,6 +62,7 @@ public class InputReader
         return value;
     }
 
+
     /**
      * Prompt the user to enter an int
      * Read an int from standard input 
@@ -113,6 +114,43 @@ public class InputReader
             }
             else
                 isValid = true;
+        }
+        return number;
+    }
+    
+        /**
+     * Prompt the user to enter an int
+     * Read an int from standard input 
+     * (the text terminal), and return it as an int.
+     *
+     * @return  A String typed by the user.
+     */
+    public int getHour(String prompt)
+    {
+        boolean isValid = false;
+        int number = 0;
+
+        while(isValid == false)
+        {
+            System.out.println(prompt);
+
+            try
+            {
+                number = reader.nextInt();
+                if(number >= 0 && number <= 23)
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    System.out.println("|✘| Range of hours is 0-23!\n");
+                }
+            }
+            catch(Exception e)
+            {
+                System.out.println("|✘| Invalid integer!\n");
+            }
+
         }
         return number;
     }

@@ -60,19 +60,18 @@ public class DatabaseManager
         
     public final static String concessionDiscountsTable = "CREATE TABLE IF NOT EXISTS ConcessionDiscounts" +
         "(ID INTEGER PRIMARY KEY," +
-        " child INTEGER NOT NULL," + 
-        " student INTEGER NOT NULL," + 
-        " senior INTEGER NOT NULL)";
+        " child INTEGER DEFAULT 0.5," + 
+        " student INTEGER DEFAULT 0.8," + 
+        " senior INTEGER DEFAULT 0.75)";
+        
         
     public final static String seatPricingTable = "CREATE TABLE IF NOT EXISTS SeatPricing" +
         "(ID INTEGER PRIMARY KEY," +
         " showID INTEGER NOT NULL," + 
         " concessionDiscountID INTEGER NOT NULL," +
         " tier1 INTEGER DEFAULT 40," + 
-        " tier2 INTEGER DEFAULT 30," + 
-        " tier3 INTEGER DEFAULT 20," + 
-        " tier4 INTEGER DEFAULT 10," + 
-        " tier5 INTEGER DEFAULT 5," + 
+        " tier2 INTEGER DEFAULT 20," + 
+        " tier3 INTEGER DEFAULT 10," + 
         " FOREIGN KEY(concessionDiscountID) REFERENCES ConcessionDiscounts(ID), " +
         " FOREIGN KEY(showID) REFERENCES Shows(ID))";
         
@@ -89,6 +88,7 @@ public class DatabaseManager
         " userID INTEGER NOT NULL," + 
         " commission INTEGER NOT NULL," +
         " salary INTEGER DEFAULT 0," +
+        " assignedSeats STRING NOT NULL," +
         " FOREIGN KEY(userID) REFERENCES Users(ID))";
         
     public final static String bookingsTable = "CREATE TABLE IF NOT EXISTS Bookings" +

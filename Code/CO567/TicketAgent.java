@@ -7,6 +7,8 @@
  */
 public class TicketAgent
 {
+    InputReader reader = new InputReader();
+    DatabaseManager db = new DatabaseManager();
     // instance variables - replace the example below with your own
     private int x;
 
