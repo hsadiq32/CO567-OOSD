@@ -39,9 +39,33 @@ public class VenueManager
         lastName = db.getData("lastName", "Users", "ID ="+ id +"");
         email = db.getData("email", "Users", "ID ="+ id +"");
         password = db.getData("password", "Users", "ID ="+ id +"");
-        if(db.getData("userID", "Payment", "ID ="+ id +"")==null)
+        VenueManagerUI();
+    }
+    
+    public void VenueManagerUI()
+    {
+        while(true)
         {
-            addEvent();
+            System.out.println("1. Manage Events");
+            System.out.println("2. Manage Users");
+            System.out.println("3. Exit");
+            String option = reader.getString("Choose an option from above:");
+            if(option.equals("1"))
+            {
+                addEvent();
+            }
+            else if(option.equals("2"))
+            {
+
+            }
+            else if(option.equals("3"))
+            {
+                break;
+            }
+            else
+            {
+                System.out.println("Choose a valid option");
+            }
         }
     }
     
@@ -49,19 +73,19 @@ public class VenueManager
     {
         String title = reader.getString("Event title:");
         String description = reader.getString("Event desciption:");
+        int year = reader.getInt("Enter year of event:", 2022, 2100);
+        int month = reader.getInt("Enter month of event:", 1, 31);
+        int day = reader.getInt("Enter day of event:", 1, 31);
         int startHours = reader.getInt("Enter start time hours:", 0, 23);
         int startMinutes = reader.getInt("Enter start time minutes:", 0, 59);
         int endHours = reader.getInt("Enter end time hours:", 0, 23);
         int endMinutes = reader.getInt("Enter end time minutes:", 0, 59);
-        int day = reader.getInt("Enter day of event:", 1, 31);
-        int month = reader.getInt("Enter month of event:", 1, 31);
-        int year = reader.getInt("Enter year of event:", 2021, 2100);
         String dateTime = day + "," + month + "," + year + "," + startHours + "," + startMinutes + "," + endHours + "," + endMinutes;
         db.insertDB("Events", "title, description, dateTime","'" + title + "', '" + description +"', '" + dateTime + "'");
         while(true)
         {
             addShow(Integer.parseInt(db.getMaxID("Events")));
-            String choice = reader.getString("Add another show? (y/n)");
+            String choice = reader.getInput("Add another show? (y/n)");
             if(choice.equals("n"))
             {
                 break;
@@ -90,6 +114,11 @@ public class VenueManager
             String password = reader.getString("password:");
             if(db.getData("email", "Users", "email ='"+ email +"'")==null){
                 db.insertDB("Users", "firstName, lastName, email, password, userType", "'" + firstName + "', '" + lastName +"', '" + email + "', '" + password + "', 1");
+                int id = Integer.parseInt(db.getData("ID", "Users", "email ='"+ email +"'"));
+                int commission = 1;
+                int seatStartRange = 1;
+                int seatEndRange = 1;
+                db.insertDB("TicketAgents", "userID, commission, assignedSeats", id + "', '" + lastName +"', '" + email + "', '" + password + "', 1");
                 break;
             }
             else{

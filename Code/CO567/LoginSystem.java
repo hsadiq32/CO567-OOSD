@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class OTP here.
  *
@@ -25,12 +25,19 @@ public class LoginSystem
             System.out.println("2. Log in");
             System.out.println("3. Exit");
             String option = reader.getString("Choose an option from above:");
+            
             if(option.equals("1"))
             {
                 signup();
             }
             else if(option.equals("2"))
             {
+                ArrayList<String> data = new ArrayList<String>();
+                data.add("firstName");
+                data.add("email");
+                data.add("password");
+                data.add("userType");
+                db.selectColumns("Users" , data);
                 login();
             }
             else if(option.equals("3"))

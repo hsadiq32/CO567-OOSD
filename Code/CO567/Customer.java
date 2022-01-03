@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Customer here.
  *
@@ -28,6 +28,14 @@ public class Customer
         {
             addPayment();
         }
+        customerUI();
+    }
+    
+    public void customerUI()
+    {
+        db.selectAll("Events");
+        
+        int eventid = reader.getInt("Choose Event ID:");
     }
     
     public void addPayment()
