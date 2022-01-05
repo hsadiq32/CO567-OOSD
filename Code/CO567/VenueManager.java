@@ -5,15 +5,11 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class VenueManager
+public class VenueManager extends User
 {
     InputReader reader = new InputReader();
     DatabaseManager db = new DatabaseManager();
-    public int id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String password;
+    Promotions promotions = new Promotions();
     public final String[] months = 
     {
         "January",
@@ -34,11 +30,7 @@ public class VenueManager
      */
     public VenueManager(int id)
     {
-        this.id = id;
-        firstName = db.getData("firstName", "Users", "ID ="+ id +"");
-        lastName = db.getData("lastName", "Users", "ID ="+ id +"");
-        email = db.getData("email", "Users", "ID ="+ id +"");
-        password = db.getData("password", "Users", "ID ="+ id +"");
+        super(id);
         VenueManagerUI();
     }
     
