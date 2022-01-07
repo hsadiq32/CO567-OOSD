@@ -249,7 +249,88 @@ public class DatabaseManager
         return data;
     }
     
-        public static String getMaxID(String sqlFrom)
+    public static ArrayList<String> getColumns(String sqlFrom)
+    {
+        String sql = "SELECT * FROM " + sqlFrom;
+        ArrayList<String> data = new ArrayList<String>();
+        try{
+            connectDB("ProgramData", "Database", true);
+            stmt = c.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql);
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            int count = rsMetaData.getColumnCount(); 
+            for(int i = 1; i<=count; i++) 
+            {
+                data.add(rsMetaData.getColumnName(i));
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return data;
+    }
+    
+    public static void selectAll(String sqlFrom)
+    {
+        selectColumns(sqlFrom, getColumns(sqlFrom));
+    }
+    
+    public static void selectColumns(String sqlFrom, ArrayList<String> columns)
+    {
+        String sql = sqlFrom;
+        if(!sqlFrom.contains(" "))
+        {
+            sql = "SELECT * FROM " + sqlFrom;
+        }
+        
+        try{
+            connectDB("ProgramData", "Database", true);
+            stmt = c.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql);
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            int count = rsMetaData.getColumnCount(); 
+            String rowData = "| ";
+            String underRowData = "";
+            for(int i = 0; i<columns.size(); i++) 
+            {
+                //System.out.println(rsMetaData.getColumnName(i));
+                rowData = rowData + spacer(columns.get(i)) + " | ";
+            }
+            for(int i = 2; i<=rowData.length(); i++) 
+            {
+                underRowData = underRowData + "-";
+            }
+            System.out.println(underRowData);
+            System.out.println(rowData);
+            System.out.println(underRowData);
+            rowData = "| ";
+            // loop through the result set
+            while (rs.next()) {
+                for(int i = 0; i<columns.size(); i++) 
+                {
+                    rowData = rowData + spacer(rs.getString(columns.get(i))) + " | ";
+                }
+                System.out.println(rowData);
+                rowData = "| ";
+            }
+            System.out.println(underRowData);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public static String spacer(String data)
+    {
+        int add = 20 - data.length();
+        for(int i = 1; i<=add; i++) 
+        {
+            data = data + " ";
+        }
+        return data;
+    }
+    
+    public static String getMaxID(String sqlFrom)
     {
         String sql = "SELECT ID FROM " + sqlFrom +" ORDER BY ID DESC LIMIT 1";
         String data = null;
