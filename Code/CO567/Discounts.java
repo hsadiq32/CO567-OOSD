@@ -7,10 +7,23 @@
  */
 public class Discounts
 {
+    ConcessionTypes ConcessionTypes;
+    Shows shows;
     // instance variables - replace the example below with your own
     
-    private int x;
-    ConcessionTypes ConcessionTypes;
+    public int promotionID;
+    public String code;
+    public String discount;
+    public String expiry;
+    public String description;
+    
+    public int consessionID;
+    public int child;
+    public int student;
+    public int senior;
+
+    
+
 
     /**
      * Constructor for objects of class Promotions
@@ -18,18 +31,6 @@ public class Discounts
     public Discounts()
     {
         // initialise instance variables
-        x = 0;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }

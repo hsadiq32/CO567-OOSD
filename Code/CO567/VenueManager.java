@@ -9,6 +9,9 @@ public class VenueManager extends User
 {
     Discounts discounts = new Discounts();
     TicketAgent ticketAgent = new TicketAgent(id);
+    Venue venue;
+    Events events;
+    Shows shows;
     
     public final String[] months = 
     {

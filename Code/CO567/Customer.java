@@ -8,6 +8,9 @@ import java.util.ArrayList;
 public class Customer extends User
 {
     BookingSystem bookings = new BookingSystem();
+    Tickets tickets;
+    BillingAddress address;
+    BillingCard card;
     /**
      * Constructor for objects of class Customer
      */

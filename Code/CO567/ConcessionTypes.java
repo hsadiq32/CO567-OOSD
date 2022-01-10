@@ -7,5 +7,5 @@
  */
 public enum ConcessionTypes
 {
-    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    CHILD, SENIOR, STUDENT
 }

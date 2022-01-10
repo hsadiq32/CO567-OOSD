@@ -8,8 +8,21 @@
 public class Shows
 {
     DatabaseManager db = new DatabaseManager();
+    
     // instance variables - replace the example below with your own
-    private int x;
+    public int showID;
+    public int eventID;
+    public String title;
+    public String description;
+    public int maxSeats;
+    public String time;
+    
+    // pricing
+    public int tier1;
+    public int tier2;
+    public int tier3;
+    
+    
 
     /**
      * Constructor for objects of class Shows
@@ -25,9 +38,9 @@ public class Shows
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public int sampleMethod()
     {
         // put your code here
-        return x + y;
+        return 1;
     }
 }

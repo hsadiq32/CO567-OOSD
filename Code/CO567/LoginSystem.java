@@ -9,6 +9,9 @@ public class LoginSystem
 {
     InputReader reader = new InputReader();
     DatabaseManager db = new DatabaseManager();
+    Customer customer;
+    TicketAgent ticketAgent;
+    VenueManager venueManager;
     public LoginSystem()
     {
         db.createTables();

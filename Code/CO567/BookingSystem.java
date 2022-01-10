@@ -15,15 +15,20 @@ public class BookingSystem
     Tickets tickets = new Tickets();
     Venue venue = new Venue();
     DatabaseManager db = new DatabaseManager();
-    private int x;
+    public int bookingID;
+    public int userID;
+    public int showID;
+    public int ticketAgentID;
+    public int promotionID;
+    public int salePrice;
+    public String dateTime;
+    public boolean bought;
 
     /**
      * Constructor for objects of class Bookings
      */
     public BookingSystem()
     {
-        // initialise instance variables
-        x = 0;
     }
 
     /**
@@ -32,9 +37,8 @@ public class BookingSystem
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void sampleMethod()
     {
-        // put your code here
-        return x + y;
+
     }
 }

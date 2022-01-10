@@ -8,11 +8,12 @@
 public class BillingCard
 {
     DatabaseManager db = new DatabaseManager();
+    BillingAddress address;
     // instance variables - replace the example below with your own
     String cardholderName;
     String cardNumber;
     String expirationDate;
-    String ccv = "4";
+    String ccv;
     
     /**
      * Constructor for objects of class BillingCard
