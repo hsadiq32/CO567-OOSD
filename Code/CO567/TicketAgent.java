@@ -7,10 +7,8 @@
  */
 public class TicketAgent extends User
 {
-    InputReader reader = new InputReader();
-    DatabaseManager db = new DatabaseManager();
     // instance variables - replace the example below with your own
-    
+    Tickets tickets = new Tickets();
     public TicketAgent(int id)
     {
         super(id);

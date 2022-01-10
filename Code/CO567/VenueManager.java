@@ -7,9 +7,9 @@
  */
 public class VenueManager extends User
 {
-    InputReader reader = new InputReader();
-    DatabaseManager db = new DatabaseManager();
-    Promotions promotions = new Promotions();
+    Discounts discounts = new Discounts();
+    TicketAgent ticketAgent = new TicketAgent(id);
+    
     public final String[] months = 
     {
         "January",
@@ -31,12 +31,15 @@ public class VenueManager extends User
     public VenueManager(int id)
     {
         super(id);
+        Venue venue = new Venue();
+        Events events = new Events();
+        Shows shows = new Shows();
         VenueManagerUI();
     }
     
     public void VenueManagerUI()
     {
-        while(true)
+        while(logoff = true)
         {
             System.out.println("1. Manage Events");
             System.out.println("2. Manage Users");

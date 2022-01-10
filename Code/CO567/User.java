@@ -8,17 +8,20 @@
 public class User
 {
     DatabaseManager db = new DatabaseManager();
+    InputReader reader = new InputReader();
     // instance variables - replace the example below with your own
     public int id;
     public String firstName;
     public String lastName;
     public String email;
     public String password;
+    public boolean logoff;
     /**
      * Constructor for objects of class User
      */
     public User(int id)
     {
+        logoff = false;
         this.id = id;
         firstName = db.getData("firstName", "Users", "ID ="+ id +"");
         lastName = db.getData("lastName", "Users", "ID ="+ id +"");

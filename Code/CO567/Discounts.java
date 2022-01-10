@@ -1,22 +1,24 @@
 
 /**
- * Write a description of class Shows here.
+ * Write a description of class Promotions here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Shows
+public class Discounts
 {
-    DatabaseManager db = new DatabaseManager();
     // instance variables - replace the example below with your own
+    
     private int x;
+    ConcessionTypes ConcessionTypes;
 
     /**
-     * Constructor for objects of class Shows
+     * Constructor for objects of class Promotions
      */
-    public Shows()
+    public Discounts()
     {
-        
+        // initialise instance variables
+        x = 0;
     }
 
     /**
