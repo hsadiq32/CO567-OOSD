@@ -1,21 +1,23 @@
 
 /**
- * Write a description of class Bookings here.
+ * Write a description of class Tickets here.
  *
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Bookings
+public class Tickets //extends Customer
 {
+    DatabaseManager db = new DatabaseManager();
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class Bookings
+     * Constructor for objects of class Tickets
      */
-    public Bookings()
+    public Tickets()
     {
         // initialise instance variables
+        //super(id);
         x = 0;
     }
 
