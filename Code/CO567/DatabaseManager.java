@@ -46,7 +46,7 @@ public class DatabaseManager
         "(ID INTEGER PRIMARY KEY," +
         " title STRING NOT NULL," + 
         " description STRING NOT NULL," +
-        " dateTime STRING NOT NULL)";
+        " date STRING NOT NULL)";
         
     public final static String showsTable = "CREATE TABLE IF NOT EXISTS Shows" +
         "(ID INTEGER PRIMARY KEY," +
@@ -78,7 +78,6 @@ public class DatabaseManager
     public final static String promotionsTable = "CREATE TABLE IF NOT EXISTS Promotions" +
         "(ID INTEGER PRIMARY KEY," +
         " code STRING NOT NULL," + 
-        " rules STRING NOT NULL," + 
         " discount STRING NOT NULL," + 
         " expiry STRING NOT NULL," +
         " description STRING NOT NULL)";

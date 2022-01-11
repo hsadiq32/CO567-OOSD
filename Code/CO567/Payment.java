@@ -11,7 +11,8 @@ public class Payment
     int userID;
     int billingcardID;
     int billingAddressID;
-
+    BillingCard card;
+    BillingAddress address;
     /**
      * Constructor for objects of class Payment
      */

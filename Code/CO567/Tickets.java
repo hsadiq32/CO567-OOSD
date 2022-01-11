@@ -9,7 +9,7 @@ public class Tickets //extends Customer
 {
     DatabaseManager db = new DatabaseManager();
     // instance variables - replace the example below with your own
-    private int x;
+    public int bookingID;
 
     /**
      * Constructor for objects of class Tickets
@@ -18,7 +18,6 @@ public class Tickets //extends Customer
     {
         // initialise instance variables
         //super(id);
-        x = 0;
     }
 
     /**
@@ -27,9 +26,7 @@ public class Tickets //extends Customer
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
+    public void sampleMethod(int y)
     {
-        // put your code here
-        return x + y;
     }
 }
