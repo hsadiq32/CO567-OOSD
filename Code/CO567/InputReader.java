@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.*;
 
 /**
  * InputReader reads typed text input from the standard text terminal. 
@@ -56,6 +57,37 @@ public class InputReader
             else
             {
                 isValid = true;
+            }
+        }
+
+        return value;
+    }
+    
+    public String getStringEmail(String prompt)
+    {
+        String value = null;
+        boolean isValid = false;
+
+        while(isValid == false)
+        {
+            System.out.println(prompt);
+            value = reader.nextLine();
+            Pattern pattern = Pattern.compile("^[A-Za-z0-9._]{1,16}+@{1}+[a-z]{1,7}\\.[a-z]{1,3}$");
+            Matcher match = pattern.matcher(value);
+            if(value.isBlank() || value.isEmpty())
+            {
+                System.out.println("|✘| Blank Input");
+            }
+            else
+            {
+                if (match.find()) 
+                {
+                    isValid = true;
+                } 
+                else 
+                {
+                    System.out.println("|✘| Incorrect Email format");
+                }
             }
         }
 
@@ -153,5 +185,16 @@ public class InputReader
 
         }
         return number;
+    }
+    
+    public void printOptions(String[] options)
+    {
+        int i = 1;
+        for (String option: options) 
+        {           
+            //Do your stuff here
+            System.out.println(i + ". " + option); 
+            i++;
+        }
     }
 }

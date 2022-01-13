@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Customer extends User
 {
-    BookingSystem bookings = new BookingSystem();
+    
     Tickets tickets;
     BillingAddress address;
     BillingCard card;
@@ -17,22 +17,25 @@ public class Customer extends User
     public Customer(int id)
     {
         super(id);
-        System.out.println(super.getFullName() + "," + super.email);
         BillingCard card = new BillingCard(id);
         BillingAddress address = new BillingAddress();
         Tickets tickets = new Tickets();
-        customerUI();
+
     }
     
     public void customerUI()
     {
-        db.selectAll("Events");        
-        int eventid = reader.getInt("Choose Event ID:");
+        if(db.getData("userID", "Payment", "userID ="+ id)==null)
+        {
+            addBillingAddress();
+            addPayment();
+        }
+        BookingSystem bookings = new BookingSystem(id);
+        bookings.bookingSystemUI();
     }
     
     public void addPayment()
     {
-        addBillingAddress();
         int billingAddressID = Integer.parseInt(db.getMaxID("BillingAddress"));
         String cardholderName = reader.getString("Cardholder Name:");
         String cardNumber = reader.getString("Card Number:");

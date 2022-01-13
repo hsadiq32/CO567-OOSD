@@ -16,7 +16,7 @@ public class LoginSystem
     {
         db.createTables();
         if(db.getData("userType", "Users", "userType =2")==null){
-            db.insertDB("Users", "firstName, lastName, email, password, userType", "'John', 'Smith', '1', '2', 2");
+            db.insertDB("Users", "firstName, lastName, email, password, userType", "'John', 'Smith', 'email@email.com', '1234', 2");
         }
         startMenu();
     }
@@ -59,8 +59,8 @@ public class LoginSystem
         while(true){
             String firstName = reader.getString("First Name:");
             String lastName = reader.getString("Last Name:");
-            String email = reader.getString("email:");
-            String password = reader.getString("password:");
+            String email = reader.getString("Email:");
+            String password = reader.getString("Password:");
             if(db.getData("email", "Users", "email ='"+ email +"'")==null){
                 db.insertDB("Users", "firstName, lastName, email, password", "'" + firstName + "', '" + lastName +"', '" + email + "', '" + password + "'");
                 accountSelector(email);
@@ -106,6 +106,7 @@ public class LoginSystem
         {
             System.out.println("customer");
             Customer customer = new Customer(id);
+            customer.customerUI();
         }
         else if(accountType == 1)
         {
@@ -116,6 +117,7 @@ public class LoginSystem
         {
             System.out.println("venuemanager");
             VenueManager venueManager = new VenueManager(id);
+            venueManager.venueManagerUI();
         }
         else
         {

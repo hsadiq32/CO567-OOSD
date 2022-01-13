@@ -183,6 +183,22 @@ public class DatabaseManager
         }
     }
     
+    public static void updateDB(String table, String columnsChange, String where)
+    {
+        try 
+        { 
+            connectDB("ProgramData", "Database", true);
+            stmt = c.createStatement();
+            String sql = "UPDATE " + table + " SET " + columnsChange + " " + "WHERE " + where + ");"; 
+            stmt.executeUpdate(sql);
+            stmt.close();
+            c.close();
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+    }
+    
         public static void findDB(String table, String column)
     {
         try {
